@@ -1,0 +1,265 @@
+/* General styles */
+@media screen and (min-width: 650px) {
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
+  }
+
+  .app-bar .app-bar__brand h1 {
+    font-size: 1.5em;
+  }
+
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    width: 100%;
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    display: inline-block;
+  }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .hero-element img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .app-bar .app-bar__brand h1 {
+    font-size: 2em;
+  }
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .restaurant-info {
+    padding: 10px;
+  }
+
+  .remove-favorite-button {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .restaurant-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurant-detail-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1.2rem;
+  }
+
+  .restaurant-menus li {
+    width: calc(45% - 20px);
+  }
+}
+
+/* Styles for very small screens */
+@media (max-width: 480px) {
+  .restaurant-list {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-image-container {
+    height: 150px;
+  }
+
+  .restaurant-name {
+    font-size: 1rem;
+  }
+
+  .restaurant-description {
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1rem;
+  }
+
+  .restaurant-categories h4,
+  .restaurant-menus h4,
+  .restaurant-reviews h4 {
+    font-size: 1.6rem;
+  }
+
+  .restaurant-menus li {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .hero-element img {
+    width: 100%; /* Membuat gambar full width */
+    height: auto; /* Menyesuaikan tinggi gambar agar proporsional */
+  }
+}
+
+@media (max-width: 600px) {
+  #menu-button {
+    display: inline-block;
+  }
+
+  #brand {
+  margin-left: 10px;
+}
+
+
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #444;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #nav-links.show {
+    display: flex;
+  }
+
+  header {
+    padding: 10px 20px;
+  }
+
+  nav ul li a:hover {
+    color: #007bff;
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurant-detail-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1.2rem;
+  }
+
+  .restaurant-menus li {
+    width: calc(45% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1rem;
+  }
+
+  .restaurant-categories h4,
+  .restaurant-menus h4,
+  .restaurant-reviews h4 {
+    font-size: 1.6rem;
+  }
+
+  .restaurant-menus li {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .restaurant-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurant-detail-image {
+    margin-right: 0;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1.2rem;
+  }
+
+  .restaurant-menus li {
+    width: calc(45% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 2rem;
+  }
+
+  .restaurant-basic-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .restaurant-basic-info p {
+    font-size: 1rem;
+  }
+
+  .restaurant-categories h4,
+  .restaurant-menus h4,
+  .restaurant-reviews h4 {
+    font-size: 1.6rem;
+  }
+
+  .restaurant-menus li {
+    width: 100%;
+  }
+}

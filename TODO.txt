@@ -1,0 +1,4 @@
+1. buat routes halaman
+2. request api
+3. gunakan server worker
+4. gunakan cache
