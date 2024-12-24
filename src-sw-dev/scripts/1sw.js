@@ -1,5 +1,5 @@
 import "regenerator-runtime";
-import CacheHelper from "./utils/cache-helper";
+import CacheHelper from "./utils/1cache-helper";
 
 // Daftar asset yang akan dicaching
 const assetsToCache = [
