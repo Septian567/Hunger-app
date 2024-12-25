@@ -1,4 +1,5 @@
 import CONFIG from "../../globals/config";
+import FavRestoIdb from "../../data/resto-idb";
 
 const detailPage = {
   async render() {
@@ -30,7 +31,7 @@ const detailPage = {
       this.checkIfFavorite(id);
 
       // Event listener untuk tombol favorit
-      this.setupFavoriteButton(id);
+      this.setupFavoriteButton(restaurant);
 
       // Add event listeners for toggle buttons
       this.setupToggleMenuAndReviews();
@@ -104,13 +105,12 @@ const detailPage = {
   },
 
   // Mengecek apakah restoran sudah ada di favorit atau belum
-  checkIfFavorite(id) {
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const isFavorite = favorites.includes(id);
+  async checkIfFavorite(id) {
+    const favorite = await FavRestoIdb.getResto(id);
     const favoriteButton = document.getElementById("favorite-button");
 
     // Mengubah teks tombol berdasarkan status favorit
-    if (isFavorite) {
+    if (favorite) {
       favoriteButton.textContent = "Remove from Favorite";
       favoriteButton.classList.add("remove");
     } else {
@@ -120,24 +120,20 @@ const detailPage = {
   },
 
   // Menangani event tombol favorit untuk menambah atau menghapus dari favorit
-  setupFavoriteButton(id) {
+  setupFavoriteButton(restaurant) {
     const favoriteButton = document.getElementById("favorite-button");
 
-    favoriteButton.addEventListener("click", () => {
-      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favoriteButton.addEventListener("click", async () => {
+      const favorite = await FavRestoIdb.getResto(restaurant.id);
 
-      if (favorites.includes(id)) {
+      if (favorite) {
         // Hapus restoran dari favorit
-        const updatedFavorites = favorites.filter(
-          (favoriteId) => favoriteId !== id
-        );
-        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+        await FavRestoIdb.deleteResto(restaurant.id);
         favoriteButton.textContent = "Add to Favorite";
         favoriteButton.classList.remove("remove");
       } else {
         // Tambahkan restoran ke favorit
-        favorites.push(id);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
+        await FavRestoIdb.putResto(restaurant);
         favoriteButton.textContent = "Remove from Favorite";
         favoriteButton.classList.add("remove");
       }

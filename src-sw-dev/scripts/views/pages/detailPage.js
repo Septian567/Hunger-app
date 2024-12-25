@@ -1,5 +1,6 @@
 import CONFIG from "../../globals/config";
 
+
 const detailPage = {
   async render() {
     return `

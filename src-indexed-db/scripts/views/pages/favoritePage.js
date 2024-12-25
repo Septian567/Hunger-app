@@ -1,9 +1,10 @@
 import CONFIG from "../../globals/config";
+import FavRestoIdb from "../../data/resto-idb";
 
 const favoritePage = {
   async render() {
     return `
-      <h2>Favorite Restaurants</h2>
+      <h2>Favorite Restaurants Indexed Db</h2>
       <div id="favoriteContent">
         <div id="favorite-restaurants" class="restaurant-list"></div>
       </div>
@@ -14,41 +15,21 @@ const favoritePage = {
     const favoriteRestaurantsContainer = document.getElementById(
       "favorite-restaurants"
     );
-    const favoriteIds = JSON.parse(localStorage.getItem("favorites")) || [];
-
-    if (favoriteIds.length === 0) {
-      favoriteRestaurantsContainer.innerHTML =
-        "<p>No favorite restaurants added yet.</p>";
-      return;
-    }
 
     try {
-      const favoriteRestaurants = await Promise.all(
-        favoriteIds.map(async (id) => {
-          const response = await fetch(`${CONFIG.BASE_URL}detail/${id}`);
-          const data = await response.json();
-          return {
-            id: data.restaurant.id,
-            name: data.restaurant.name,
-            description: data.restaurant.description,
-            pictureId: `${CONFIG.BASE_IMAGE_URL}${data.restaurant.pictureId}`,
-            city: data.restaurant.city,
-            rating: data.restaurant.rating,
-            altText: `Image of ${data.restaurant.name} restaurant`,
-          };
-        })
-      );
+      const favoriteRestaurants = await FavRestoIdb.getAllResto();
 
-      if (favoriteRestaurants.length > 0) {
+      if (favoriteRestaurants.length === 0) {
         favoriteRestaurantsContainer.innerHTML =
-          this.generateRestaurantListHTML(favoriteRestaurants);
-        this.addKeyboardNavigation();
-        this.addClickListenersToRestaurants();
-        this.setupRemoveFavoriteButtons();
-      } else {
-        favoriteRestaurantsContainer.innerHTML =
-          "<p>No favorite restaurants available.</p>";
+          "<p>No favorite restaurants added yet.</p>";
+        return;
       }
+
+      favoriteRestaurantsContainer.innerHTML =
+        this.generateRestaurantListHTML(favoriteRestaurants);
+      this.addKeyboardNavigation();
+      this.addClickListenersToRestaurants();
+      this.setupRemoveFavoriteButtons();
     } catch (error) {
       favoriteRestaurantsContainer.innerHTML = `<p>Error fetching favorite restaurants: ${error.message}</p>`;
     }
@@ -59,13 +40,14 @@ const favoritePage = {
   },
 
   generateRestaurantItemHTML(restaurant) {
-    const { id, pictureId, altText, name, description, city, rating } =
-      restaurant;
+    const { id, pictureId, name, description, city, rating } = restaurant;
 
     return `
       <div class="restaurant-item" data-id="${id}" tabindex="0">
         <div class="restaurant-image-container">
-          <img src="${pictureId}" alt="${altText}" class="restaurant-image" />
+          <img src="${
+            CONFIG.BASE_IMAGE_URL
+          }${pictureId}" alt="Image of ${name} restaurant" class="restaurant-image" />
           <span class="restaurant-city">${city}</span>
         </div>
         <div class="restaurant-info">
@@ -145,13 +127,16 @@ const favoritePage = {
       ".remove-favorite-button"
     );
     removeFavoriteButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
+      button.addEventListener("click", async (event) => {
         event.stopPropagation(); // Prevent triggering the item click listener
         const id = event.target.dataset.id;
-        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        favorites = favorites.filter((favoriteId) => favoriteId !== id);
-        localStorage.setItem("favorites", JSON.stringify(favorites));
-        this.afterRender();
+
+        try {
+          await FavRestoIdb.deleteResto(id);
+          this.afterRender();
+        } catch (error) {
+          console.error("Failed to remove favorite restaurant:", error);
+        }
       });
     });
   },

@@ -8,6 +8,7 @@ module.exports = merge(common, {
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     open: true,
+    hot: true,
     compress: true,
     client: {
       overlay: {

@@ -6,8 +6,8 @@ const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, "src-sw-dev/scripts/index.js"),
-    // sw: path.resolve(__dirname, "src-sw-dev/scripts/sw.js"),
+    app: path.resolve(__dirname, "src-indexed-db/scripts/index.js"),
+    // sw: path.resolve(__dirname, "src-indexed-db/scripts/sw.js"),
   },
   output: {
     filename: "[name].bundle.js",
@@ -34,12 +34,12 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: path.resolve(__dirname, "src-sw-dev/templates/index.html"),
+      template: path.resolve(__dirname, "src-indexed-db/templates/index.html"),
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src-sw-dev/public/"),
+          from: path.resolve(__dirname, "src-cache/public/"),
           to: path.resolve(__dirname, "dist/"),
         },
       ],

@@ -3,7 +3,7 @@ import CONFIG from "../../globals/config";
 const favoritePage = {
   async render() {
     return `
-      <h2>Favorite Restaurants</h2>
+      <h2>Favorite Restaurants12</h2>
       <div id="favoriteContent">
         <div id="favorite-restaurants" class="restaurant-list"></div>
       </div>
