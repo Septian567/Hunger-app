@@ -3,6 +3,5 @@ src - *
 src *
 styles 1
 package-lock.json
-src-cache
-src-sw-dev
-src stabil
+TODO.txt
+webpack-configuration

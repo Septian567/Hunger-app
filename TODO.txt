@@ -1,4 +1,4 @@
-1. buat routes halaman
-2. request api
-3. gunakan server worker
-4. gunakan cache
+1. rapikan margin kiri kanan agar lebih lebar di perangkat kecil --success
+2. pada ponsel tampilkan dua card -- success
+3. rapikan pesan error saat tidak ada internet -- success
+4. terapkan clean code

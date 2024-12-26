@@ -1,0 +1,27 @@
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  /* Menempatkan di atas halaman, agar tidak mengganggu tampilan */
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+/* Fokuskan ketika link terpilih dengan keyboard */
+.skip-to-content:focus {
+  top: 10px;
+  /* Link akan bergerak ke bawah untuk terlihat */
+  background-color: #2e8b57;
+  outline: none;
+}
+
+/* Optional: CSS untuk menambah fokus pada elemen lainnya (menu, tombol, dll) */
+.app-bar__menu button:focus,
+.app-bar__navigation a:focus {
+  outline: 2px solid #4caf50;
+}
