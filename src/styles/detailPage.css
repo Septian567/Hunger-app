@@ -14,12 +14,15 @@ h2 {
 
 .restaurant-detail {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 30px auto; /* Memberikan jarak vertikal atas dan bawah */
+  padding-top: 20px; /* Memberikan jarak di bagian atas */
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: relative; /* Posisi tetap di tengah */
 }
+
 
 .restaurant-detail-header {
   display: flex;

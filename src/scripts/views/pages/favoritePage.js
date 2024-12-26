@@ -1,10 +1,6 @@
+import favoriteTemplate from "../templates/favorite-template";
+import favoriteUtils from "../../utils/favorite-utils";
 import FavRestoIdb from "../../data/resto-idb";
-import {
-  addKeyboardNavigation,
-  addClickListenersToRestaurants,
-  setupRemoveFavoriteButtons,
-} from "../../utils/button-actions";
-import { generateRestaurantListHTML } from "../templates/favorite-template"; // Import template functions
 
 const favoritePage = {
   async render() {
@@ -26,19 +22,20 @@ const favoritePage = {
 
       if (favoriteRestaurants.length === 0) {
         favoriteRestaurantsContainer.innerHTML =
-          "<p>No favorite restaurants added yet.</p>";
+          "<p class='info-message'>No favorite restaurants added yet.</p>";
         return;
       }
 
       favoriteRestaurantsContainer.innerHTML =
-        generateRestaurantListHTML(favoriteRestaurants); // Use the template function
-
-      // Implement the functions from button-actions.js
-      addKeyboardNavigation();
-      addClickListenersToRestaurants();
-      setupRemoveFavoriteButtons();
+        favoriteTemplate.generateRestaurantListHTML(favoriteRestaurants);
+      favoriteUtils.addKeyboardNavigation();
+      favoriteUtils.addClickListenersToRestaurants();
+      favoriteUtils.setupRemoveFavoriteButtons();
     } catch (error) {
-      favoriteRestaurantsContainer.innerHTML = `<p>Error fetching favorite restaurants: ${error.message}</p>`;
+      favoriteRestaurantsContainer.innerHTML = `
+        <p class='error-message'>
+          Error fetching favorite restaurants: ${error.message}
+        </p>`;
     }
   },
 };

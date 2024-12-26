@@ -1,6 +1,9 @@
 import CONFIG from "../../globals/config";
 import { generateRestaurantDetailHTML } from "../templates/detail-template";
-import { setupFavoriteButton, checkIfFavorite } from "../../utils/favorite-button";
+import {
+  setupFavoriteButton,
+  checkIfFavorite,
+} from "../../utils/favorite-button";
 import { setupToggleMenuAndReviews } from "../../utils/toggle-buttons";
 import { setupKeyboardNavigation } from "../../utils/keyboard-navigation";
 
@@ -22,7 +25,11 @@ const detailPage = {
       const data = await response.json();
 
       if (data.error) {
-        restaurantDetailElement.innerHTML = `<p>Error fetching restaurant data.</p>`;
+        restaurantDetailElement.innerHTML = `
+          <div class="notification-message">
+            <p><strong>Error:</strong> Unable to fetch restaurant details.</p>
+          </div>
+        `;
         return;
       }
 
@@ -42,7 +49,11 @@ const detailPage = {
       // Tambahkan interaksi keyboard pada menu
       setupKeyboardNavigation();
     } catch (error) {
-      restaurantDetailElement.innerHTML = `<p>Error fetching restaurant data: ${error.message}</p>`;
+      restaurantDetailElement.innerHTML = `
+        <div class="notification-message">
+          <p>No internet connection ...</p>
+        </div>
+      `;
     }
   },
 };
