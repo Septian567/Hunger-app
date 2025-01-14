@@ -223,3 +223,35 @@ h2 {
   z-index: 1000;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .restaurant-item-link {
+    min-width: 40px; /* Adjust width for smaller screens */
+    min-height: 40px; /* Adjust height for smaller screens */
+    padding: 12px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-item-link {
+    min-width: 35px; /* Adjust width for very small screens */
+    min-height: 35px; /* Adjust height for very small screens */
+    padding: 10px; /* Adjust padding for very small screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .restaurant-name {
+    min-width: 40px;  /* Adjust width for smaller screens */
+    min-height: 40px; /* Adjust height for smaller screens */
+    font-size: 0.9rem;  /* Slightly smaller font size for tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-name {
+    min-width: 35px;  /* Adjust width for mobile screens */
+    min-height: 35px; /* Adjust height for mobile screens */
+    font-size: 0.8rem;  /* Smaller font size for mobile screens */
+  }
+}
