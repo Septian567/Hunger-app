@@ -1,0 +1,301 @@
+/* Resetting some basic styles */
+body,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #444;
+}
+
+.restaurant-detail {
+  max-width: 900px;
+  margin: 30px auto; /* Memberikan jarak vertikal atas dan bawah */
+  padding-top: 20px; /* Memberikan jarak di bagian atas */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative; /* Posisi tetap di tengah */
+}
+
+.restaurant-detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.restaurant-detail-image {
+  max-width: 100%;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.restaurant-basic-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.restaurant-basic-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.restaurant-basic-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.restaurant-description {
+  padding: 20px;
+}
+
+.restaurant-description p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.restaurant-categories,
+.restaurant-menus,
+.restaurant-reviews {
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.restaurant-categories h4,
+.restaurant-menus h4,
+.restaurant-reviews h4 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.restaurant-categories li,
+.restaurant-reviews li {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.restaurant-menu-section {
+  margin-bottom: 20px;
+}
+
+.restaurant-menu-section h5 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Food Menu Styles: Compact Layout */
+.restaurant-menus ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 0;
+}
+
+.restaurant-menus li {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-width: 44px;  /* Minimum width */
+  min-height: 44px; /* Minimum height */
+  display: flex;  /* Use flexbox to center content */
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-menus li:hover {
+  transform: scale(1.03);
+}
+
+.restaurant-menus li p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Media query untuk responsivitas */
+@media (max-width: 600px) {
+  .restaurant-menus li {
+    min-width: 44px;  /* Tetap memastikan item menu 44px pada layar kecil */
+    min-height: 44px;
+    padding: 8px;  /* Sesuaikan padding untuk item menu kecil */
+  }
+}
+
+/* Toggle Button Styles */
+.toggle-button {
+  display: inline-block;
+  background-color: #cfd1d4;
+  color: rgb(71, 75, 72);
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  border: none;
+  margin: 15px;
+  min-width: 44px;  /* Minimum width */
+  min-height: 44px; /* Minimum height */
+  display: inline-flex; /* Ensures button is aligned and centers content */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect */
+.toggle-button:hover {
+  background-color: #6a7581;
+  transform: scale(1.05);
+}
+
+/* Focus effect */
+.toggle-button:focus {
+  outline: none;
+  border: 2px solid #555;
+  background-color: #e7f7e7;
+  box-shadow: 0 0 5px rgba(72, 197, 14, 0.5);
+}
+
+/* Active effect */
+.toggle-button:active {
+  background-color: #456991;
+}
+
+/* Media query untuk responsivitas */
+@media (max-width: 600px) {
+  .toggle-button {
+    min-width: 44px;  /* Tetap memastikan tombol 44px pada layar kecil */
+    min-height: 44px;
+    padding: 8px 16px;  /* Sesuaikan padding untuk tombol kecil */
+    font-size: 0.875rem; /* Ukuran font lebih kecil di layar kecil */
+  }
+}
+
+
+/* Favorite Button */
+.favorite-button {
+  background-color: #7f8071;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 44px;  /* Minimum width */
+  min-height: 44px; /* Minimum height */
+  display: inline-flex; /* Ensures button is aligned and centers content */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect */
+.favorite-button:hover {
+  background-color: #575252;
+  transform: scale(1.05);
+}
+
+/* Active effect */
+.favorite-button:active {
+  background-color: #b0cc31;
+  transform: scale(0.95);
+}
+
+/* Remove button styles */
+.favorite-button.remove {
+  background-color: #555;
+  color: #fff;
+}
+
+.favorite-button.remove:hover {
+  background-color: #444;
+}
+
+.favorite-button.remove:active {
+  background-color: #222;
+}
+
+/* Media query untuk responsivitas */
+@media (max-width: 600px) {
+  .favorite-button {
+    min-width: 44px;  /* Tetap memastikan tombol 44px pada layar kecil */
+    min-height: 44px;
+    padding: 8px 16px;  /* Sesuaikan padding untuk tombol kecil */
+  }
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .restaurant-detail {
+    margin: 0 30px; /* Lebar margin lebih besar pada tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .restaurant-detail {
+    margin: 0 40px; /* Lebar margin cukup besar pada layar tanggung */
+  }
+
+  .restaurant-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .restaurant-detail-image {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .restaurant-menus ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-detail {
+    margin: 0 15px;
+  }
+
+  .restaurant-menus ul {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,46 @@
+/* Casual popup styling */
+.swal2-popup.casual-popup {
+  background-color: #f9f9f9; /* Soft light grey background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif; /* Friendly font */
+  font-size: 16px;
+}
+
+/* Casual title styling */
+.swal2-title.casual-title {
+  color: #333; /* Dark grey for text */
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Casual content styling */
+.swal2-content.casual-content {
+  color: #555; /* Slightly lighter grey for content text */
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+/* Casual confirm button styling */
+.swal2-confirm.casual-button {
+  background-color: #4caf50; /* Soft green color */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.swal2-confirm.casual-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.swal2-confirm.casual-button:active {
+  background-color: #388e3c; /* Even darker green when clicked */
+}

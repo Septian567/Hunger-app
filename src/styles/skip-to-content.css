@@ -1,0 +1,34 @@
+.skip-to-content {
+  position: absolute;
+  top: -70px; /* Menempatkan di atas halaman, agar tidak mengganggu tampilan */
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;  /* Padding yang lebih lebar */
+  text-decoration: none;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+  min-width: 44px;  /* Minimum width */
+  min-height: 44px; /* Minimum height */
+  display: inline-flex; /* Gunakan flexbox untuk memusatkan konten */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fokuskan ketika link terpilih dengan keyboard */
+.skip-to-content:focus {
+  top: 10px;
+  background-color: #2e8b57;
+  outline: none;
+}
+
+/* Media query untuk responsivitas */
+@media (max-width: 600px) {
+  .skip-to-content {
+    min-width: 44px;  /* Tetap memastikan tombol minimal 44px */
+    min-height: 44px; /* Tetap memastikan tombol minimal 44px */
+    padding: 8px 16px; /* Sesuaikan padding untuk tampilan kecil */
+    font-size: 0.875rem; /* Ukuran font sedikit lebih kecil pada layar kecil */
+  }
+}
