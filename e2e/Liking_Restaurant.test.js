@@ -8,9 +8,7 @@ Before(({ I }) => {
 });
 Scenario('liking one restaurant', async ({ I }) => {
   I.see('No favorite restaurants added yet', '.info-message');
-  // pause();
   I.amOnPage('/');
-  pause();
   I.seeElement('.restaurant-name');
   const firstRestaurant = locate('.restaurant-name').first();
   const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
@@ -25,7 +23,6 @@ Scenario('liking one restaurant', async ({ I }) => {
   const likedRestaurantTitle = await I.grabTextFrom('.restaurant-name');
 
   assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
-  // pause();
 });
 
 Scenario('unliking a restaurant from detail Page', async ({ I }) => {
@@ -34,7 +31,6 @@ Scenario('unliking a restaurant from detail Page', async ({ I }) => {
   // Tambahkan restoran ke favorit terlebih dahulu
   I.amOnPage('/');
   I.seeElement('.restaurant-name');
-  // pause();
   const firstRestaurant = locate('.restaurant-name').first();
   const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
   I.click(firstRestaurant);
@@ -57,7 +53,6 @@ Scenario('unliking a restaurant from detail Page', async ({ I }) => {
   // Pastikan restoran telah dihapus dari daftar favorit
   I.amOnPage('/#/Favorite');
   I.see('No favorite restaurants added yet', '.info-message');
-  pause();
 });
 
 Scenario('unliking a restaurant from favorite page', async ({ I }) => {
@@ -66,7 +61,6 @@ Scenario('unliking a restaurant from favorite page', async ({ I }) => {
   // Tambahkan restoran ke favorit terlebih dahulu
   I.amOnPage('/');
   I.seeElement('.restaurant-name');
-  // pause();
   const firstRestaurant = locate('.restaurant-name').first();
   const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
   I.click(firstRestaurant);
@@ -97,10 +91,8 @@ Scenario('unliking a restaurant from favorite page', async ({ I }) => {
 
   I.amOnPage('/');
   I.seeElement('.restaurant-name');
-  // pause();
   const firstRestaurantAgain = locate('.restaurant-name').first();
   I.click(firstRestaurantAgain);
 
   I.seeElement('#favorite-button');
-  pause();
 });
